@@ -1,0 +1,14 @@
+{
+  "name": "sauce-test",
+  "version": "0.0.1",
+  "description": "Test automation for the saucedemo.com online shop.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marvin Gordon",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^11.2.0"
+  }
+}
