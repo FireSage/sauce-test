@@ -43,7 +43,7 @@ describe("Add to cart ", ()=>{
 		confirmItemInCart(product);		
 
 	});
-	it.only("Should Add multiple items to the cart", ()=>{
+	it("Should Add multiple items to the cart", ()=>{
 		const product_starting_index = Math.floor(Math.random()*(products.length/2));
 		let selected_products = [
 			products[product_starting_index],
@@ -69,20 +69,19 @@ describe("Add to cart ", ()=>{
 });
 
 function confirmItemInCart(product){
-	cart.navigateToCart();
-	cy.url().should("include", routes.cart);
+    cart.navigateToCart();
+    cy.url().should("include", routes.cart);
 
-	const remove_id = `[id='remove-${cart.applySelectorFormat(product.name)}']`;
-	cy.get(remove_id).parents(".cart_item_label")
-		.find('.inventory_item_name').should('exist');
-	cy.get(remove_id).parents(".cart_item_label")
-		.find('.inventory_item_name').should('have.text', product.name);
-	cy.get(remove_id).parents(".cart_item_label")
-		.find('.inventory_item_price').should('exist');
-	cy.get(remove_id).parents(".cart_item_label")
-		.find('.inventory_item_price').should('have.text', `$${product.price}`);
-	cy.get(remove_id).should('exist');
-	cy.get(remove_id).should('be.visible');
-	cy.get(remove_id).should('exist');
-
+    const remove_id = `[id='remove-${cart.applySelectorFormat(product.name)}']`;
+    cy.get(remove_id).parents(".cart_item_label")
+        .find('.inventory_item_name').should('exist');
+    cy.get(remove_id).parents(".cart_item_label")
+        .find('.inventory_item_name').should('have.text', product.name);
+    cy.get(remove_id).parents(".cart_item_label")
+        .find('.inventory_item_price').should('exist');
+    cy.get(remove_id).parents(".cart_item_label")
+        .find('.inventory_item_price').should('have.text', `$${product.price}`);
+    cy.get(remove_id).should('exist');
+    cy.get(remove_id).should('be.visible');
+    cy.get(remove_id).should('exist');
 }

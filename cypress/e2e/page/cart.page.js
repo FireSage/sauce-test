@@ -33,7 +33,8 @@ class Cart{
      	return ('.removed_cart_item') 
     }
 
-    get checkOutBtn() { 	return ('#checkout') 
+    get checkOutBtn() {
+        return ('#checkout') 
     }
 
     addToCart(itemName){
@@ -57,6 +58,8 @@ class Cart{
     applySelectorFormat(itemName){
         return itemName.toLowerCase().replaceAll(' ', '-')
     }
+
 }
+
 
 module.exports = new Cart();
