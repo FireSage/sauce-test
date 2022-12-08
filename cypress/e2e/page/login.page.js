@@ -11,17 +11,26 @@ class LoginPage{
     get txtPassword() { 
     	return ('#password') 
     }
+    
     get passwordError() { 
     	return ('#password + svg.error_icon') 
     }
+
     get loginBtn() { 
     	return ('#login-button') 
 	}
 
-    get itemNames() { return ('.inventory_item_name') }
+    get itemNames() { 
+    	return ('.inventory_item_name') 
+    }
 
-    get mainMenuBtn() { return ('#react-burger-menu-btn') }
-    get logOutBtn() { return ('#logout_sidebar_link') }
+    get mainMenuBtn() { 
+    	return ('#react-burger-menu-btn') 
+    }
+
+    get logOutBtn() { 
+    	return ('#logout_sidebar_link') 
+    }
 
     login(username, password){
         cy.get(this.txtUserName).type(username)
