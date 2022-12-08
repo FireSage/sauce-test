@@ -2,7 +2,7 @@ class Cart{
 	get cartIcon() {
 	 	return ('.shopping_cart_link') 
     }
-    get cartNotification() {
+    get cartBadge() {
         return ('.shopping_cart_badge') 
     }
 
@@ -35,18 +35,16 @@ class Cart{
 
     get checkOutBtn() { 	return ('#checkout') 
     }
-    //#endregion
 
-    //#region Methods
     addToCart(itemName){
-        let addToCartBtn = `#add-to-cart-${this.applySelectorFormat(itemName)}`
+        let addToCartBtn = `[id='add-to-cart-${this.applySelectorFormat(itemName)}']`
 
         cy.get(addToCartBtn).should('be.visible')
         cy.get(addToCartBtn).click()
     }
 
     removeFromCart(itemName){
-        let removeFromCartBtn = `#remove-${this.applySelectorFormat(itemName)}`
+        let removeFromCartBtn = `[id='remove-${this.applySelectorFormat(itemName)}']`
 
         cy.get(removeFromCartBtn).should('be.visible')
         cy.get(removeFromCartBtn).click()
