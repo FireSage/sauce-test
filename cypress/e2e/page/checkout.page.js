@@ -1,3 +1,4 @@
+import checkoutData from "../data/checkout.data";
 class Checkout{
 
     get txtFirstname() {
@@ -33,6 +34,14 @@ class Checkout{
         return ('#continue') 
     }
 
+    get finishBtn() {
+        return ('#finish') 
+    }
+
+    get backToProductsBtn() {
+        return ('#back-to-products') 
+    }
+
     get firstNameErrorMessage() {
         return 'Error: First Name is required' 
     }
@@ -43,6 +52,34 @@ class Checkout{
         return 'Error: Postal Code is required' 
     }
 
+    /*---------------------------------------------------*/
+	get itemName(){
+		return (".inventory_item_name");
+	}
+
+	get itemPrice(){
+		return (".inventory_item_price");
+	}
+
+	get txtTax(){
+		return (".summary_tax_label");
+	}
+
+	get txtSubTotal(){
+		return (".summary_subtotal_label");
+	}
+
+	get txtTotal(){
+		return (".summary_total_label");
+	}
+
+	calculateTax(preTaxPrice){
+		return (preTaxPrice * checkoutData.taxRate).toFixed(2);
+	}
+
+	calculateTotal(preTaxPrice){
+		return (preTaxPrice * (1 + checkoutData.taxRate)).toFixed(2);
+	}
 }
 
 module.exports = new Checkout();
