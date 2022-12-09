@@ -133,6 +133,8 @@ describe("Checkout Products", ()=>{
 		cy.get(CheckoutPage.txtTotal).should('contain', `$${CheckoutPage.calculateTotal(product.price)}`);
 
 		// check card information
+
+
 		// check shipping information
 
 		cy.get(CheckoutPage.finishBtn).click();
@@ -141,7 +143,7 @@ describe("Checkout Products", ()=>{
 		cy.get(CheckoutPage.backToProductsBtn).click();
 	});
 
-	it.only("Should allow checkout with correct tax and totals for multiple item", ()=>{
+	it("Should allow checkout with correct tax and totals for multiple item", ()=>{
 		const product_starting_index = Math.floor(Math.random()*(products.length/2));
 		let selected_products = [
 			products[product_starting_index],
